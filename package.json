@@ -1,0 +1,21 @@
+{
+  "name": "sales-order-backend",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@sap/cds": "^9"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/eslint-plugin-cds": "^4",
+    "eslint": "^9",
+    "git-commit-msg-linter": "^5.0.8"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "dev": "cds watch"
+  },
+  "private": true
+}
