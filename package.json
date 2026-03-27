@@ -4,6 +4,7 @@
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
   "license": "UNLICENSED",
+  "private":"true",
   "dependencies": {
     "@sap/cds": "^9"
   },
@@ -16,6 +17,5 @@
   "scripts": {
     "start": "cds-serve",
     "dev": "cds watch"
-  },
-  "private": true
+  }
 }
