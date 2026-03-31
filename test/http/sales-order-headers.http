@@ -3,7 +3,7 @@
 @customerId=92482150-ae73-4d28-839d-eee90c96ab63
 @productId=a8a1b439-ed0c-4910-8a2a-e4294dabbe54
 
-GET http://{{localhost}}/SalesOrderHeaders
+GET http://{{localhost}}/SalesOrderHeaders?$filter=id eq {{id}}&$expand=items
 Content-Type: application/json
 
 ###
@@ -12,22 +12,23 @@ POST http://{{localhost}}/SalesOrderHeaders
 Content-Type: application/json
 
 {
-    "id":"{{id}}",
-    "customer_id":"{{customerId}}",
+    "id": "{{id}}",
+    "customer_id": "{{customerId}}",
+    "totalAmount": "36.55",
     "items": [
         {
            "id": "cb1a6311-0ecc-4e07-9b95-d7f7cbc57eb7",
            "header_id": "{{id}}",
            "product_id": "{{productId}}",
            "quantity": 10,
-           "price": 2,99
+           "price": 2.99
         },
         {
            "id": "036d6c48-2309-476a-9314-00beb1c122e5",
            "header_id": "{{id}}",
            "product_id": "{{productId}}",
            "quantity": 5,
-           "price": 1,33
+           "price": 1.33
         }
     ]
 }
@@ -43,3 +44,12 @@ PUT http://{{localhost}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
 
 {}
+
+
+
+###
+
+#Teste de busca com filter
+
+GET http://{{localhost}}/SalesOrderHeaders?$filter=totalAmount le 36.55
+Content-Type: application/json

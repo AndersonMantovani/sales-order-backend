@@ -25,6 +25,7 @@ Content-Type: application/json
 
 ###
 
+
 PATCH  http://{{localhost}}/Customers(id={{id}})
 Content-Type: application/json
 
@@ -32,11 +33,9 @@ Content-Type: application/json
     "firstName": "Raphael"
 }
 
-
 ###
-# entity Customers {
-#    key id: UUID;
-#        firstName: String(20);
-#        lastName: String(100);
-#        email: String(255);
-# }
+
+#Teste filtro por nome 
+
+GET   http://{{localhost}}/Customers?$filter=contains(firstName,'Luca')
+Content-Type: application/json
