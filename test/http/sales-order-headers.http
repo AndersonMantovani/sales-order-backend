@@ -69,3 +69,26 @@ Content-Type: application/json
 
 GET http://{{localhost}}/SalesOrderHeaders?$expand=items($expand=product;$filter=quantity eq 10), customer
 Content-Type: application/json
+
+
+###
+
+#Selecionar somente e id do sales order header
+
+GET http://{{localhost}}/SalesOrderHeaders?$select=id,customer_id&$filter=customer_id eq 92482150-ae73-4d28-839d-eee90c96ab63&$expand=customer
+Content-Type: application/json
+
+###
+
+# Descobrindo a quantidade de registros.
+
+GET http://{{localhost}}/SalesOrderHeaders?$skip=3&$top=3
+Content-Type: application/json
+
+
+###
+
+# Buscando dados com o search
+
+GET http://{{localhost}}/SalesOrderHeaders?$search=ano&$expand=customer
+Content-Type: application/json
