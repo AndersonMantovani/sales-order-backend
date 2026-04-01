@@ -53,3 +53,19 @@ Content-Type: application/json
 
 GET http://{{localhost}}/SalesOrderHeaders?$filter=totalAmount le 36.55
 Content-Type: application/json
+
+
+###
+
+#Teste 1) Expandindo os items
+
+GET http://{{localhost}}/SalesOrderHeaders?$expand=items, customer
+Content-Type: application/json
+
+
+####
+
+#Teste 1) Expandindo os items
+
+GET http://{{localhost}}/SalesOrderHeaders?$expand=items($expand=product;$filter=quantity eq 10), customer
+Content-Type: application/json
