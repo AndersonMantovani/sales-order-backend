@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2024",
+    "module": "node20",
+    "moduleResolution": "node16",
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "paths": {
+      "*": ["./*"]
+    },
+    "rootDir": "./"
+  },
+  "include": ["srv"],
+  "exclude": ["node_modules"]
+}
