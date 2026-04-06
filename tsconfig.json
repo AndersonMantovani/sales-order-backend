@@ -7,7 +7,12 @@
     "strictNullChecks": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "outDir": "./dist",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@cap-js"
+    ],
     "paths": {
       "*": ["./*"],
       "@models/*": ["./@cds-models/*/index.ts"]
