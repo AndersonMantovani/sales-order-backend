@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@cap-js/cds-typer": "^0.38.0",
+    "@cap-js/cds-types": "^0.16.0",
     "@cap-js/sqlite": "^2",
     "@sap/eslint-plugin-cds": "^4",
     "@types/axios": "^0.14.4",
