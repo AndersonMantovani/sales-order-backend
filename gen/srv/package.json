@@ -23,5 +23,8 @@
   "scripts": {
     "start": "cds-serve",
     "dev": "cds-tsx watch"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

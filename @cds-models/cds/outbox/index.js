@@ -1,55 +1,8 @@
-"use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Messages = exports.Message = void 0;
-exports._MessageAspect = _MessageAspect;
 // This is an automatically generated file. Please do not change its contents manually!
-const __ = __importStar(require("./../../_"));
-function _MessageAspect(Base) {
-    return class Message extends Base {
-        static kind = 'entity';
-    };
-}
-class Message extends _MessageAspect(__.Entity) {
-}
-exports.Message = Message;
-Object.defineProperty(Message, 'name', { value: 'cds.outbox.Messages' });
-Object.defineProperty(Message, 'is_singular', { value: true });
-class Messages extends Array {
-    $count;
-}
-exports.Messages = Messages;
-Object.defineProperty(Messages, 'name', { value: 'cds.outbox.Messages' });
-//# sourceMappingURL=index.js.map
+const { createEntityProxy } = require('./../../_')
+// Messages
+module.exports.Message = createEntityProxy(['cds.outbox', 'Messages'], { target: { is_singular: true } })
+module.exports.Messages = createEntityProxy(['cds.outbox', 'Messages'], { target: { is_singular: false }})
+// events
+// actions
+// enums
