@@ -21,7 +21,7 @@ Content-Type: application/json
         {
            "id": "cb1a6311-0ecc-4e07-9b95-d7f7cbc57eb7",
            "header_id": "{{id}}",
-           "product_id": "{{productId1}}",
+           "product_id": "{{productId2}}",
            "quantity": 10,
            "price": 2.99
         },

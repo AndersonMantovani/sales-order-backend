@@ -7,6 +7,27 @@
                     "database": "memory"
                 }
                 
+            },
+            "auth": {
+                "kind": "basic",
+                "users": {
+                    "cuka":{
+                        "password": "inicial@12345",
+                        "roles": ["admin"],
+                        "attr": {
+                            "id": "1",
+                            "grups": ["group1", "group2"]
+                        }
+                    },
+                    "joaozinho":{
+                        "password": "inicial@12345",
+                        "roles": ["read_only_user"],
+                        "attr": {
+                            "id": "2",
+                            "grups": ["group1"]
+                        }
+                    }
+                }
             }
         }
     }
