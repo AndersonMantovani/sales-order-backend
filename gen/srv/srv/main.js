@@ -38,4 +38,22 @@ exports.default = (service) => {
             }
         }
     });
+    service.after('CREATE', 'SalesOrderHeaders', async (results) => {
+        const headersAsArray = Array.isArray(results) ? results : [results];
+        for (const header of headersAsArray) {
+            const items = header.items;
+            const productsData = items.map(item => ({
+                id: item.product_id,
+                quantity: item.quantity
+            }));
+            const productsIds = productsData.map((productsData) => productsData.id);
+            const productsQuery = SELECT.from('sales.Products').where({ id: productsIds });
+            const products = await cds_1.default.run(productsQuery);
+            for (const productData of productsData) {
+                const foundProduct = products.find(product => product.id === productData.id);
+                foundProduct.stock = foundProduct.stock - productData.quantity;
+                await cds_1.default.update('sales.Products').where({ id: foundProduct.id }).with({ stock: foundProduct.stock });
+            }
+        }
+    });
 };
