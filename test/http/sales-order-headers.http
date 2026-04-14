@@ -7,11 +7,14 @@
 
 GET http://{{localhost}}/SalesOrderHeaders?$filter=id eq {{id}}&$expand=items
 Content-Type: application/json
+Authorization: Basic joaozinho:Inicial@12345
 
 ###
 
 POST http://{{localhost}}/SalesOrderHeaders
 Content-Type: application/json
+Authorization: Basic cuka:Inicial@12345
+
 
 {
     "id": "{{id}}",
@@ -39,12 +42,13 @@ Content-Type: application/json
 
 DELETE http://{{localhost}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
+Authorization: Basic cuka:Inicial@12345
 
 ###
 
 PUT http://{{localhost}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
-
+Authorization: Basic joaozinho:Inicial@12345
 {}
 
 
@@ -55,6 +59,7 @@ Content-Type: application/json
 
 GET http://{{localhost}}/SalesOrderHeaders?$filter=totalAmount le 36.55
 Content-Type: application/json
+Authorization: Basic joaozinho:Inicial@12345
 
 
 ###
@@ -63,7 +68,7 @@ Content-Type: application/json
 
 GET http://{{localhost}}/SalesOrderHeaders?$expand=items, customer
 Content-Type: application/json
-
+Authorization: Basic joaozinho:Inicial@12345
 
 ####
 
@@ -71,7 +76,7 @@ Content-Type: application/json
 
 GET http://{{localhost}}/SalesOrderHeaders?$expand=items($expand=product;$filter=quantity eq 10), customer
 Content-Type: application/json
-
+Authorization: Basic joaozinho:Inicial@12345
 
 ###
 
@@ -79,14 +84,14 @@ Content-Type: application/json
 
 GET http://{{localhost}}/SalesOrderHeaders?$select=id,customer_id&$filter=customer_id eq 92482150-ae73-4d28-839d-eee90c96ab63&$expand=customer
 Content-Type: application/json
-
+Authorization: Basic joaozinho:Inicial@12345
 ###
 
 # Descobrindo a quantidade de registros.
 
 GET http://{{localhost}}/SalesOrderHeaders?$skip=3&$top=3
 Content-Type: application/json
-
+Authorization: Basic joaozinho:Inicial@12345
 
 ###
 
@@ -94,5 +99,5 @@ Content-Type: application/json
 
 GET http://{{localhost}}/SalesOrderHeaders?$search=ano&$expand=customer
 Content-Type: application/json
-
+Authorization: Basic joaozinho:Inicial@12345
 

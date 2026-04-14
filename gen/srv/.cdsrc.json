@@ -1,30 +1,31 @@
 {
-    "[dv]" : {
+    "[development]" : {
         "requires" : {
             "db" : {
-                "kind":"sqlite",
-                "credentials": {
-                    "database": "memory"
-                }
                 
+                "credentials": {
+                    "database": "db.sqlite"
+                },
+                "kind":"sqlite"
             },
-            "auth": {
+            "auth" : {
                 "kind": "basic",
+                "mocked": false,
                 "users": {
-                    "cuka":{
-                        "password": "inicial@12345",
+                    "cuka": {
+                        "password": "Inicial@12345",
                         "roles": ["admin"],
                         "attr": {
                             "id": "1",
-                            "grups": ["group1", "group2"]
+                            "groups": "grupo1, grupo2"
                         }
                     },
-                    "joaozinho":{
-                        "password": "inicial@12345",
+                    "joaozinho": {
+                        "password": "Inicial@12345",
                         "roles": ["read_only_user"],
                         "attr": {
                             "id": "2",
-                            "grups": ["group1"]
+                            "groups": "grupo1"
                         }
                     }
                 }

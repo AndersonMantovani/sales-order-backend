@@ -185,10 +185,24 @@
     },
     "MainService": {
       "@source": "srv/main.cds",
-      "kind": "service"
+      "kind": "service",
+      "@requires": "authenticated-user"
     },
     "MainService.SalesOrderHeaders": {
       "kind": "entity",
+      "@restricts": [
+        {
+          "grant": "READ",
+          "to": "read_only_user"
+        },
+        {
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
+          "to": "admin"
+        }
+      ],
       "projection": {
         "from": {
           "ref": [
@@ -294,6 +308,19 @@
     },
     "MainService.Customers": {
       "kind": "entity",
+      "@restricts": [
+        {
+          "grant": "READ",
+          "to": "read_only_user"
+        },
+        {
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
+          "to": "admin"
+        }
+      ],
       "projection": {
         "from": {
           "ref": [
@@ -322,6 +349,19 @@
     },
     "MainService.Products": {
       "kind": "entity",
+      "@restricts": [
+        {
+          "grant": "READ",
+          "to": "read_only_user"
+        },
+        {
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
+          "to": "admin"
+        }
+      ],
       "projection": {
         "from": {
           "ref": [
