@@ -5,6 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const cds_1 = __importDefault(require("@sap/cds"));
 exports.default = (service) => {
+    service.before('READ', '*', (request) => {
+        if (!request.user.is('read_only_user')) {
+            return request.reject(403, 'Não Autorizado');
+        }
+    });
+    service.before(['WRITE', 'DELETE'], '*', (request) => {
+        if (!request.user.is('admin')) {
+            return request.reject(403, 'Não Autorizado para escrita ou deleção');
+        }
+    });
     service.after('READ', 'Customers', (results) => {
         results.forEach(customer => {
             if (!customer.email?.includes('@')) {
