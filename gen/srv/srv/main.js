@@ -10,7 +10,7 @@ exports.default = (service) => {
             return request.reject(403, 'Não Autorizado');
         }
     });
-    service.before(['WRITE', 'DELETE'], '*', (request) => {
+    service.before(['READ', 'WRITE', 'DELETE'], '*', (request) => {
         if (!request.user.is('admin')) {
             return request.reject(403, 'Não Autorizado para escrita ou deleção');
         }

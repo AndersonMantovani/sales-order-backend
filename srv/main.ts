@@ -22,6 +22,7 @@ export default (service: Service) => {
     });
     service.before('CREATE', 'SalesOrderHeaders', async (request: Request) => {
         const params = request.data;
+        const items: SalesOrderItems = params.items;
         if (!params.customer_id) {
             return request.reject(400, 'Customer invalido');
         }
@@ -47,6 +48,12 @@ export default (service: Service) => {
             }
 
         }
+        let totalAmount = 0;
+        items.forEach(item => {
+            totalAmount += (item.price as number) * (item.quantity as number);
+
+        });
+        request.data.totalAmount = totalAmount;
     });
     service.after('CREATE', 'SalesOrderHeaders', async (results: SalesOrderHeaders) => {
         const headersAsArray = Array.isArray(results) ? results : [results] as SalesOrderHeaders;

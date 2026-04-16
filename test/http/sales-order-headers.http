@@ -19,7 +19,6 @@ Authorization: Basic cuka:Inicial@12345
 {
     "id": "{{id}}",
     "customer_id": "14868955-f250-4562-a6e9-86134e393855",
-    "totalAmount": "36.55",
     "items": [
         {
            "id": "cb1a6311-0ecc-4e07-9b95-d7f7cbc57eb7",
