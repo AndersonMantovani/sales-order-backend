@@ -53,6 +53,12 @@ export default (service: Service) => {
             totalAmount += (item.price as number) * (item.quantity as number);
 
         });
+        console.log(`Total antes do desconto: ${totalAmount}`);
+        if(totalAmount > 30000){
+            const discount = totalAmount * (10/100);
+            totalAmount = totalAmount - discount;
+        }
+        console.log(`Depois do desconto: ${totalAmount}`);
         request.data.totalAmount = totalAmount;
     });
     service.after('CREATE', 'SalesOrderHeaders', async (results: SalesOrderHeaders) => {
