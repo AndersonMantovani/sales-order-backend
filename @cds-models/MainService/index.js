@@ -13,6 +13,9 @@ module.exports.Customers = createEntityProxy(['MainService', 'Customers'], { tar
 // Products
 module.exports.Product = createEntityProxy(['MainService', 'Products'], { target: { is_singular: true } })
 module.exports.Products = createEntityProxy(['MainService', 'Products'], { target: { is_singular: false }})
+// SalesOrderLogs
+module.exports.SalesOrderLog = createEntityProxy(['MainService', 'SalesOrderLogs'], { target: { is_singular: true } })
+module.exports.SalesOrderLogs = createEntityProxy(['MainService', 'SalesOrderLogs'], { target: { is_singular: false }})
 // SalesOrderItems
 module.exports.SalesOrderItem = createEntityProxy(['MainService', 'SalesOrderItems'], { target: { is_singular: true } })
 module.exports.SalesOrderItems = createEntityProxy(['MainService', 'SalesOrderItems'], { target: { is_singular: false }})

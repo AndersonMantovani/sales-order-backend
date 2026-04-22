@@ -6,6 +6,9 @@ module.exports.SalesOrderHeaders = createEntityProxy(['sales', 'SalesOrderHeader
 // SalesOrderItems
 module.exports.SalesOrderItem = createEntityProxy(['sales', 'SalesOrderItems'], { target: { is_singular: true } })
 module.exports.SalesOrderItems = createEntityProxy(['sales', 'SalesOrderItems'], { target: { is_singular: false }})
+// SalesOrderLogs
+module.exports.SalesOrderLog = createEntityProxy(['sales', 'SalesOrderLogs'], { target: { is_singular: true } })
+module.exports.SalesOrderLogs = createEntityProxy(['sales', 'SalesOrderLogs'], { target: { is_singular: false }})
 // Customers
 module.exports.Customer = createEntityProxy(['sales', 'Customers'], { target: { is_singular: true } })
 module.exports.Customers = createEntityProxy(['sales', 'Customers'], { target: { is_singular: false }})

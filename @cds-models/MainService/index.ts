@@ -66,6 +66,31 @@ Object.defineProperty(Product, 'is_singular', { value: true })
 export class Products extends Array<Product> {$count?: number}
 Object.defineProperty(Products, 'name', { value: 'MainService.Products' })
 
+export function _SalesOrderLogAspect<TBase extends new (...args: any[]) => object>(Base: TBase) {
+  return class SalesOrderLog extends Base {
+    declare createdAt?: __.CdsTimestamp | null
+    /** Canonical user ID */
+    declare createdBy?: _.User | null
+    declare modifiedAt?: __.CdsTimestamp | null
+    /** Canonical user ID */
+    declare modifiedBy?: _.User | null
+    declare id?: __.Key<string>
+    declare header?: __.Association.to<SalesOrderHeader> | null
+    declare header_id?: string | null
+    declare userData?: string | null
+    declare orderData?: string | null
+    static readonly kind: 'entity' | 'type' | 'aspect' = 'entity';
+    declare static readonly keys: __.KeysOf<SalesOrderLog>;
+    declare static readonly elements: __.ElementsOf<SalesOrderLog>;
+    declare static readonly actions: globalThis.Record<never, never>;
+  };
+}
+export class SalesOrderLog extends _SalesOrderLogAspect(__.Entity) {}
+Object.defineProperty(SalesOrderLog, 'name', { value: 'MainService.SalesOrderLogs' })
+Object.defineProperty(SalesOrderLog, 'is_singular', { value: true })
+export class SalesOrderLogs extends Array<SalesOrderLog> {$count?: number}
+Object.defineProperty(SalesOrderLogs, 'name', { value: 'MainService.SalesOrderLogs' })
+
 export function _SalesOrderItemAspect<TBase extends new (...args: any[]) => object>(Base: TBase) {
   return class SalesOrderItem extends Base {
     declare id?: __.Key<string>

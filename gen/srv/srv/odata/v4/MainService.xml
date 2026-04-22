@@ -26,6 +26,9 @@
         </EntitySet>
         <EntitySet Name="Customers" EntityType="MainService.Customers"/>
         <EntitySet Name="Products" EntityType="MainService.Products"/>
+        <EntitySet Name="SalesOrderLogs" EntityType="MainService.SalesOrderLogs">
+          <NavigationPropertyBinding Path="header" Target="SalesOrderHeaders"/>
+        </EntitySet>
         <EntitySet Name="SalesOrderItems" EntityType="MainService.SalesOrderItems">
           <NavigationPropertyBinding Path="header" Target="SalesOrderHeaders"/>
           <NavigationPropertyBinding Path="product" Target="Products"/>
@@ -66,6 +69,22 @@
         <Property Name="name" Type="Edm.String" MaxLength="255"/>
         <Property Name="price" Type="Edm.Decimal" Precision="15" Scale="2"/>
         <Property Name="stock" Type="Edm.Int32"/>
+      </EntityType>
+      <EntityType Name="SalesOrderLogs">
+        <Key>
+          <PropertyRef Name="id"/>
+        </Key>
+        <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="id" Type="Edm.Guid" Nullable="false"/>
+        <NavigationProperty Name="header" Type="MainService.SalesOrderHeaders">
+          <ReferentialConstraint Property="header_id" ReferencedProperty="id"/>
+        </NavigationProperty>
+        <Property Name="header_id" Type="Edm.Guid"/>
+        <Property Name="userData" Type="Edm.String"/>
+        <Property Name="orderData" Type="Edm.String"/>
       </EntityType>
       <EntityType Name="SalesOrderItems">
         <Key>
@@ -118,6 +137,37 @@
         <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
       </Annotations>
       <Annotations Target="MainService.Products/id">
+        <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+      </Annotations>
+      <Annotations Target="MainService.SalesOrderLogs/createdAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedAt}"/>
+      </Annotations>
+      <Annotations Target="MainService.SalesOrderLogs/createdBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>CreatedBy}"/>
+      </Annotations>
+      <Annotations Target="MainService.SalesOrderLogs/modifiedAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedAt}"/>
+      </Annotations>
+      <Annotations Target="MainService.SalesOrderLogs/modifiedBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="{i18n>UserID.Description}"/>
+        <Annotation Term="Common.Label" String="{i18n>ChangedBy}"/>
+      </Annotations>
+      <Annotations Target="MainService.SalesOrderLogs/id">
         <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
       </Annotations>
       <Annotations Target="MainService.SalesOrderItems/id">

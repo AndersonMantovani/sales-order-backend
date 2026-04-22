@@ -42,6 +42,25 @@ Object.defineProperty(SalesOrderItem, 'is_singular', { value: true })
 export class SalesOrderItems extends Array<SalesOrderItem> {$count?: number}
 Object.defineProperty(SalesOrderItems, 'name', { value: 'sales.SalesOrderItems' })
 
+export function _SalesOrderLogAspect<TBase extends new (...args: any[]) => object>(Base: TBase) {
+  return class SalesOrderLog extends _._managedAspect(Base) {
+    declare id?: __.Key<string>
+    declare header?: __.Association.to<SalesOrderHeader> | null
+    declare header_id?: string | null
+    declare userData?: string | null
+    declare orderData?: string | null
+    static override readonly kind: 'entity' | 'type' | 'aspect' = 'entity';
+    declare static readonly keys: __.KeysOf<SalesOrderLog>;
+    declare static readonly elements: __.ElementsOf<SalesOrderLog>;
+    declare static readonly actions: typeof _.managed.actions & globalThis.Record<never, never>;
+  };
+}
+export class SalesOrderLog extends _SalesOrderLogAspect(__.Entity) {}
+Object.defineProperty(SalesOrderLog, 'name', { value: 'sales.SalesOrderLogs' })
+Object.defineProperty(SalesOrderLog, 'is_singular', { value: true })
+export class SalesOrderLogs extends Array<SalesOrderLog> {$count?: number}
+Object.defineProperty(SalesOrderLogs, 'name', { value: 'sales.SalesOrderLogs' })
+
 export function _CustomerAspect<TBase extends new (...args: any[]) => object>(Base: TBase) {
   return class Customer extends Base {
     declare id?: __.Key<string>
